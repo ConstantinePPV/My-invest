@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мои Инвестиции</title>
+  </head>
+  <body>
+    <h1>Список всех сделок</h1>
+    <table>
+			<colgroup>
+				<col id="date">
+				<col id="stock">
+				<col id="price">
+				<col id="volume">
+				<col id="sum">
+			</colgroup>
+			<thead>
+				<th>Дата</th>
+				<th>Бумага</th>
+				<th>Цена</th>
+				<th>Количество</th>
+				<th>Сумма</th>
+			</thead>
+			<tbody>
+				{% if deals %}
+					{% for deal in deals %}
+						<tr>
+							<td>{{ deal.date_deal }}</td>
+							<td>{{ deal.stock }}</td>
+							<td>{{ deal.price_deal }}</td>
+							<td>{{ deal.volume_deal }}</td>
+							<td>{{ deal.sum_deal }}</td>
+						</tr>
+					{% endfor %}
+				{% else %}
+					<p>Список сделок пуст!</p>
+				{% endif %}
+			</tbody>
+    </table>
+  </body>
+</html>
