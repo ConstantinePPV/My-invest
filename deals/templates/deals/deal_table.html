@@ -1,31 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Мои Инвестиции</title>
-  </head>
-  <body>
-    <h1>Список всех сделок</h1>
-    <table>
+{% extends 'deals/base.html' %}
+
+{% block content %}
+	 <h1>Список всех сделок</h1>
+    <table class="table">
 			<colgroup>
+				<col id="#">				
 				<col id="date">
 				<col id="stock">
 				<col id="price">
 				<col id="volume">
 				<col id="sum">
 			</colgroup>
-			<thead>
-				<th>Дата</th>
-				<th>Бумага</th>
-				<th>Цена</th>
-				<th>Количество</th>
-				<th>Сумма</th>
+			<thead class="thead-dark">
+				<th scope="col">#</th>
+				<th scope="col">Дата</th>
+				<th scope="col">Бумага</th>
+				<th scope="col">Цена</th>
+				<th scope="col">Количество</th>
+				<th scope="col">Сумма</th>
 			</thead>
 			<tbody>
 				{% if deals %}
 					{% for deal in deals %}
 						<tr>
+							<td><a href="{% url 'deal_detail' pk=deal.pk %}">R</a></td>
 							<td>{{ deal.date_deal }}</td>
 							<td>{{ deal.stock }}</td>
 							<td>{{ deal.price_deal }}</td>
@@ -37,6 +35,7 @@
 					<p>Список сделок пуст!</p>
 				{% endif %}
 			</tbody>
-    </table>
-  </body>
-</html>
+    </table> 
+{% endblock content %}
+	
+   

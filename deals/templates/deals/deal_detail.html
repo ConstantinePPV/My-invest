@@ -1,0 +1,11 @@
+{% extends 'deals/base.html' %}
+
+{% block content %}
+<p>Дата сделки: {{ deal.date_deal }}</p>
+<p>Название: {{ deal.stock }}</p>
+<p>Цена: {{ deal.price_deal }}</p>
+<p>Количество: {{ deal.volume_deal }}</p>
+<p>Сумма: {{ deal.sum_deal }}</p>
+
+{% endblock %}
+    
