@@ -1,11 +1,33 @@
 {% extends 'deals/base.html' %}
 
 {% block content %}
-<p>Дата сделки: {{ deal.date_deal }}</p>
-<p>Название: {{ deal.stock }}</p>
-<p>Цена: {{ deal.price_deal }}</p>
-<p>Количество: {{ deal.volume_deal }}</p>
-<p>Сумма: {{ deal.sum_deal }}</p>
-
+<h2>Список</h2>
+<table class="table">
+	<colgroup>
+		<col id="#">				
+		<col id="date">
+		<col id="stock">
+		<col id="price">
+		<col id="volume">
+		<col id="sum">
+	</colgroup>
+	<thead class="thead-dark">
+		<!-- <th scope="col">#</th> -->
+		<th scope="col">Дата</th>
+		<th scope="col">Бумага</th>
+		<th scope="col">Цена</th>
+		<th scope="col">Количество</th>
+		<th scope="col">Сумма</th>
+	</thead>
+	<tbody>				
+		<tr>							
+			<td>{{ deal.date_deal }}</td>
+			<td>{{ deal.stock }}</td>
+			<td>{{ deal.price_deal }}</td>
+			<td>{{ deal.volume_deal }}</td>
+			<td>{{ deal.sum_deal }}</td>
+		</tr>					
+	</tbody>
+</table> 
 {% endblock %}
     
