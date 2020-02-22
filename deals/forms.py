@@ -11,5 +11,4 @@ class DealForm(forms.ModelForm):
             'stock', 
             'price_deal', 
             'volume_deal',
-            'sum_deal',
         )
