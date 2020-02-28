@@ -1,3 +1,8 @@
+body {
+    width: 980px;
+    margin: 0 auto;
+}
+
 .page-header {
     background-color: #ff9400;
     margin-top: 0;

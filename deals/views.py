@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Deal
 from .forms import DealForm
@@ -15,5 +15,13 @@ def deal_detail(request, pk):
 
 
 def deal_new(request):
-    form = DealForm()
-    return render(request, 'deals/deal_edit.html', {'form': form})
+    if request.method == "POST":
+        form = DealForm(request.POST)
+        if form.is_valid():
+            deal = form.save(commit=False)
+            # deal.sum_deal = request.sum_deal
+            deal.save()
+            return redirect('deal_detail', pk=deal.pk)
+    else:
+        form = DealForm()
+        return render(request, 'deals/deal_edit.html', {'form': form})
